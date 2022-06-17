@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <style>
+        .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #DCD6F7;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+    </style>
 </head>
 <body>
     <h2>PolicyModels</h2>
     <h4>Click on the web component you want to try</h4>
-    <div id="button"><a href="indexDefault.html"><button>Default web component</button></a></div>
-    <div id="button"><a href="indexChat.html"><button>Chat web component</button></a></div>
+    <div id="button"><a href="indexDefault.html"><button class="button" style="vertical-align:middle"><span>Default web component</span></button></a></div>
+    <div id="button"><a href="indexChat.html"><button class="button" style="vertical-align:middle"><span>Chat web component</span></button></a></div>
 </body>
 </html>
