@@ -1,0 +1,238 @@
+.boxRight {
+    width: 300px;
+    margin: 50px auto;
+    background: #DCD6F7;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    color: black;
+    font-family: arial;
+    position: relative; 
+    left: 60px;
+  }
+
+  .boxLeft {
+    width: 300px;
+    margin: 50px auto;
+    background: #A6B1E1;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    color: black;
+    font-family: arial;
+    position: sticky;
+    right: 0px;
+    position: relative;
+    right: 60px;
+  }
+
+  .answer:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #DCD6F7;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #DCD6F7;
+    border-bottom: 10px solid transparent;
+    right: -20px;
+    top: 6px;
+  }
+
+  .question:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #A6B1E1;
+    border-top: 10px solid #A6B1E1;
+    border-bottom: 10px solid transparent;
+    left: -20px;
+    top: 6px;
+  }
+
+.chat{
+  background-color: white;
+  border-color: black;
+}
+
+.btnDownloadConclusions{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.downloadConclusions{
+  text-align: center;
+  align-items: center;
+}
+.backToHome{
+  text-align: center;
+  align-items: center;
+}
+.startInterview{
+  text-align: center;
+  align-items: center;
+}
+
+.startInterviewBtn, .btnShowTags, .btnDownloadConclusions, .backToWelcomePage, .btnConclusion, .btnDownloadTranscript, .restartBtn{
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .30rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.startInterviewBtn:hover, .btnShowTags:hover, .btnDownloadConclusions:hover, .backToWelcomePage:hover, .btnConclusion:hover, .btnDownloadTranscript:hover, .restartBtn:hover{
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+.startInterviewBtn:focus, .btnShowTags:focus, .btnDownloadConclusions:focus, .backToWelcomePage:focus, .btnConclusion:focus, .btnDownloadTranscript:focus, .restartBtn:focus{
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+
+.restartBtn{
+  margin-bottom: 10px;
+}
+
+.btnShowTags{
+  position: relative;
+  /* margin-bottom: 20px; */
+}
+.btnDownloadTranscript{
+  margin-top: 10px;
+}
+
+.tagsDiv{
+  position: relative;
+  margin-left: 20px;
+  display: none;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2fr 1fr;
+}
+
+.btnRevisitQ , .btn, .feedbackBtn, .feedbackSubmitBtn, .commentBtn, .commentSubmitBtn{
+  /* background: rgba(51, 51, 51, 0.05); */
+  background: #F4EEFF;
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  /* margin: 0; */
+  margin-top: 6px;
+  padding: 2px 3px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.feedbackBtn, .feedbackSubmitBtn, .commentBtn, .commentSubmitBtn{
+  margin-right: 500px;
+  /* margin-bottom: 25px; */
+}
+
+#mySelect {
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+
+  min-width: 15ch;
+  max-width: 30ch;
+
+  /*border: 1px solid var(--select-border);*/
+  border-radius: 0.25em;
+  padding: 0.25em 0.25em;
+
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  line-height: 1.1;
+
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  border-radius: inherit;
+}
+
+#inputID{
+  border: none;
+  border-bottom: 2px solid black;
+  width: 70%;
+}
+
+#inputFeedbackID, #inputFeedbacNameID, #inputCommentID{
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: #F4EEFF;
+  margin-right: 500px;
+}
+#inputFeedbacNameID{
+  margin-bottom: 2px;
+}
+
+.conclusionContent{
+  font-size: 50px;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.conclusion{
+  text-align: center;
+  align-items: center;
+}
+
+.conclusions{
+  font-size: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+.welcomeContent{
+  font-size: 50px;
+  text-align: center;
+  align-items: center;
+}
+
+.transitionToConclusionPageContent{
+  font-size: 20px;
+  text-align: center;
+  align-items: center;
+}
