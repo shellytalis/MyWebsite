@@ -9,126 +9,142 @@ class Question {
     }
 }
 
-// const jsonData ={"Recommendations":["checkElderlyAllowance"],"Duties":["employeePriorNotice"],"EmployerObligations":["honorFormerContractorSeniority","finalAccountSettlement","pensionFundNotice","jobTerminationConfirmation","workPeriodLetter","form161"],"Notices":["severancePayMethod_Monthly","priorNoticePeriod_Varied"],"Benefits":{"Pension":"allowance","Properties":["possiblePersonalAccidentsInsurance"]},"Assertions":{"Employment":{"Type":"contractor","Scope":"full","SalaryUnits":"monthly","Duration":"_6_11"},"AgeGroup":"voluntaryPension","LegalStatus":"israeliCitizenship","Gender":"female"}};
-// //answer order - are you a woman? - yes || How old are you? - 62 to 67 || Are you an Israeli citizen? - yes.
-// const jsonQuestionBankEnglish = [{
-// 	"questionID": 1,
-// 	"question": "Are you a woman?",
-// 	"answers": ["yes", "no"]
-// },
-// {
-// 	"questionID": 2,
-// 	"question": "How old are you?",\]
-// 	"answers": ["under 62", "62 to 67", "67 and over"]
-// },
-// {
-// 	"questionID": 3,
-// 	"question": "Are you an Israeli citizen?",
-// 	"answers": ["yes", "no"]
-// },
-// {
-// 	"questionID": 4,
-// 	"question": "How was your salary calculated?",
-// 	"answers": ["monthly", "daily", "hourly"]
-// },
-// {
-// 	"questionID": 5,
-// 	"question": "How has your day been?",
-// 	"answers":  ["Best day of my life", "Great", "Ok", "Bad", "Straight up agony"]
-// },
-// {
-// 	"questionID": 6,
-// 	"question": "What is your favorite animal",
-// 	"answers": ["Dog", "Cat", "Mouse", "Frog", "Hedgehog", "Bee", "Wolf", "Other"]
-// },
-// {
-// 	"questionID": 7,
-// 	"question": "Who is the best?",
-// 	"answers": ["Shady", "Shelly", "Eilon", "Tbh none of them"]
-// },
-// {
-// 	"questionID": 8,
-// 	"question": "Are you an israeli citizan",
-// 	"answers": ["Yes", "No"]
-// },
-// {
-// 	"questionID": 9,
-// 	"question": "Who is the best friend?",
-// 	"answers": ["Ross", "Chandler", "Monica", "Rachel", "Pheobe", "Joey"]
-// },
-// {
-// 	"questionID": 10,
-// 	"question": "HIMYM or Seinfeld?",
-// 	"answers": ["HIMYM", "Seinfeld", "F.r.i.e.n.d.s", "other"]
-// },
-// {
-//     "questionID": 11,
-// 	"question": "test or Seinfeld?",
-// 	"answers": ["test", "test", "F.r.i.e.n.d.s", "test"]
-// },
-// {
-//     "questionID": undefined,
-//     "question": "",
-//     "answers": []
-// }];
+if(document.getElementById('internalCheckUp') != null){
+    //test css
+    try{
+        let css = document.getElementById("style").innerHTML;
+    }
+    catch(e){
+        prompt("Could not find CSS file!");
+    }
+    //test Text Assets
+    try{
+        let keys = TextAssets.keys();
+    }
+    catch(e){
+        prompt("Could not find \"textAssets.js\" file!");
+    }
+    Array.from(TextAssets.keys()).forEach((key) =>
+    {
+    
+        let welcome = TextAssets.get(key).welcome;
+        if (welcome  == undefined){
+            prompt(`textAssets is missing 'welcome' for ${key}!`);
+        }
+        let start_interview = TextAssets.get(key).start_interview;
+        if (start_interview  == undefined){
+            prompt(`textAssets is missing 'start_interview' for ${key}!`);
+        }
+        let start = TextAssets.get(key).start;
+        if (start  == undefined){
+            prompt(`textAssets is missing 'start' for ${key}!`);
+        }
+        let show_transcript = TextAssets.get(key).show_transcript;
+        if (show_transcript  == undefined){
+            prompt(`textAssets is missing 'show_transcript' for ${key}!`);
+        }
+        let hide_transcript = TextAssets.get(key).hide_transcript;
+        if (hide_transcript  == undefined){
+            prompt(`textAssets is missing 'hide_transcript' for ${key}!`);
+        }
+        let question = TextAssets.get(key).question;
+        if (question  == undefined){
+            prompt(`textAssets is missing 'question' for ${key}!`);
+        }
+        let your_answer = TextAssets.get(key).your_answer;
+        if (your_answer  == undefined){
+            prompt(`textAssets is missing 'your_answer' for ${key}!`);
+        }
+        let revisit = TextAssets.get(key).revisit;
+        if (revisit  == undefined){
+            prompt(`textAssets is missing 'revisit' for ${key}!`);
+        }
+        let show_conclusion = TextAssets.get(key).show_conclusion;
+        if (show_conclusion  == undefined){
+            prompt(`textAssets is missing 'show_conclusion' for ${key}!`);
+        }
+        let home = TextAssets.get(key).home;
+        if (home  == undefined){
+            prompt(`textAssets is missing 'home' for ${key}!`);
+        }
+        let result = TextAssets.get(key).result;
+        if (result  == undefined){
+            prompt(`textAssets is missing 'result' for ${key}!`);
+        }
+        let conclusion_page = TextAssets.get(key).conclusion_page;
+        if (conclusion_page  == undefined){
+            prompt(`textAssets is missing 'conclusion_page' for ${key}!`);
+        }
+        let press_conclusions = TextAssets.get(key).press_conclusions;
+        if (press_conclusions  == undefined){
+            prompt(`textAssets is missing 'press_conclusions' for ${key}!`);
+        }
+        let download_transcript = TextAssets.get(key).download_transcript;
+        if (download_transcript  == undefined){
+            prompt(`textAssets is missing 'download_transcript' for ${key}!`);
+        }
+        let write_feedback = TextAssets.get(key).write_feedback;
+        if (write_feedback  == undefined){
+            prompt(`textAssets is missing 'write_feedback' for ${key}!`);
+        }
+        let submit_feedback = TextAssets.get(key).submit_feedback;
+        if (submit_feedback  == undefined){
+            prompt(`textAssets is missing 'submit_feedback' for ${key}!`);
+        }
+        let show_tags = TextAssets.get(key).show_tags;
+        if (show_tags  == undefined){
+            prompt(`textAssets is missing 'show_tags' for ${key}!`);
+        }
+        let hide_tags = TextAssets.get(key).hide_tags;
+        if (hide_tags  == undefined){
+            prompt(`textAssets is missing 'hide_tags' for ${key}!`);
+        }
+        let my_feedback_is = TextAssets.get(key).my_feedback_is;
+        if (my_feedback_is  == undefined){
+            prompt(`textAssets is missing 'my_feedback_is' for ${key}!`);
+        }
+        let my_name_is = TextAssets.get(key).my_name_is;
+        if (my_name_is  == undefined){
+            prompt(`textAssets is missing 'my_name_is' for ${key}!`);
+        }
+        let download_conclusions = TextAssets.get(key).download_conclusions;
+        if (download_conclusions  == undefined){
+            prompt(`textAssets is missing 'download_conclusions' for ${key}!`);
+        }
+        let enter_answer = TextAssets.get(key).enter_answer;
+        if (enter_answer  == undefined){
+            prompt(`textAssets is missing 'enter_answer' for ${key}!`);
+        }
+        let write_comment = TextAssets.get(key).write_comment;
+        if (write_comment  == undefined){
+            prompt(`textAssets is missing 'write_comment' for ${key}!`);
+        }
+        let hide_comment = TextAssets.get(key).hide_comment;
+        if (hide_comment  == undefined){
+            prompt(`textAssets is missing 'hide_comment' for ${key}!`);
+        }
+        let my_comment_is = TextAssets.get(key).my_comment_is;
+        if (my_comment_is  == undefined){
+            prompt(`textAssets is missing 'my_comment_is' for ${key}!`);
+        }
+        let rejection = TextAssets.get(key).rejection;
+        if (rejection  == undefined){
+            prompt(`textAssets is missing 'rejection' for ${key}!`);
+        }
+        let rejection_advice = TextAssets.get(key).rejection_advice;
+        if (rejection_advice  == undefined){
+            prompt(`textAssets is missing 'rejection_advice' for ${key}!`);
+        }
+    })
 
-// class APIMock {
-//     constructor(){
-//         this.language = 'English-Raw'
-//         this.questionId;
-//         this.questionbank = jsonQuestionBankEnglish
-//         this.answers = new Map();
-//     }
-
-//     initModel(modelId, versionId){
-//         return;
-//     }
-
-//     initInterview(language){
-//         this.answers = new Map();
-//         this.questionId = this.questionbank[0]['questionID'];
-//         let retObject = [[this.questionbank[0]['questionID'],this.questionbank[0]['question'],this.questionbank[0]['answers']], jsonData];
-//         return retObject;
-//     }
-
-//     getNextQuestion(answer, questionId) {
-//         this.answers.set(questionId, [this.questionbank[questionId]['question'], answer]);
-//         // if (answer == -1)
-//         //     retObject = JSON.stringify(this.questionbank[questionID - 1]); 
-//         // if (questionId == undefined)
-//         //     retObject = JSON.stringify(this.questionbank[0]);
-//         // else
-//         //console.log(this.questionbank[questionId]);
-//         this.questionId = this.questionbank[questionId]['questionID'];
-//         let retObject = [[this.questionbank[questionId]['questionID'],this.questionbank[questionId]['question'],this.questionbank[questionId]['answers']], jsonData];
-//         return retObject;
-//     }
-
-//     returnToQuestion(questionId){
-//         console.log("hi");
-//         this.answers.forEach((value, key) => {if(key >= questionId) this.answers.delete(key)});
-//         let retObject = [[this.questionbank[questionId-1]['questionID'],this.questionbank[questionId-1]['question'],this.questionbank[questionId-1]['answers']], jsonData, this.answers];
-//         return retObject;
-//     }
-
-//     changeLanguage(language){
-//         let retObject = [[this.questionbank[this.questionId]['questionID'],this.questionbank[this.questionId]['question'],this.questionbank[this.questionId]['answers']], jsonData, this.answers];
-//         return retObject
-//     }
-
-//     changeHandlerLanguage(language){
-//         this.language = language;
-//     }
-
-//     getTags(language){
-//         return jsonData;
-//     }
-
-//     sendFeedback(name, feedback){
-//         console.log(name);
-//         console.log(feedback);
-//     }
-// }
+    //test connection
+    try{
+        let apiHandler = new PMAPIHandler();
+    }
+    catch(e){
+        prompt(`could not find 'connection.js' file!`);
+    }
+}
 
 const template = document.createElement('template');
 var nameOfFileCss = document.getElementById("style").innerHTML;
@@ -152,8 +168,13 @@ template.innerHTML = `<link rel=\"stylesheet\" href=` + nameOfFileCss + `>
 class PolicyModelsChat extends HTMLElement{
     constructor(){
         super();
+
+
+
         this.question;
-        this.pageIdentifyer = 1;
+        this.pageIdentifier = 1;
+        this.rejectionFlag = 0;
+
 
         // answers are represented in a map  [QuestionID]-->[Question| answer text | answer position]
         this.answers = new Map();  
@@ -168,7 +189,6 @@ class PolicyModelsChat extends HTMLElement{
         this.apiHandler = new PMAPIHandler();
         this.language = TextAssets.keys().next().value;
 
-        //this.question = this.apiHandler.initInterview("English-Raw");
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
@@ -180,11 +200,11 @@ class PolicyModelsChat extends HTMLElement{
 
     async changeLanguage(){
         this.language = this.shadowRoot.querySelector('#mySelect').value;
-            if(this.pageIdentifyer == 1){
+            if(this.pageIdentifier == 1){
                 this.apiHandler.changeHandlerLanguage(this.language);
                 this.welcomePage();
             }
-            else if (this.pageIdentifyer == 2){
+            else if (this.pageIdentifier == 2){
                 let changeLanguageData = await this.apiHandler.changeLanguage(this.language);
                 let languageAnswers = changeLanguageData[2];
                 let newAnswers = new Map();
@@ -195,15 +215,27 @@ class PolicyModelsChat extends HTMLElement{
                 this.answers = newAnswers;
                 this.interviewPage();
             }
-            else if (this.pageIdentifyer == 3){
+            else if (this.pageIdentifier == 3){
                 this.apiHandler.changeHandlerLanguage(this.language);
                 this.tags = await this.apiHandler.getTags(this.language);
                 this.conclusionPage();
             }
+            else if (this.pageIdentifier == 4){
+                let changeLanguageData = await this.apiHandler.changeLanguage(this.language);
+                let languageAnswers = changeLanguageData[2];
+                let newAnswers = new Map();
+                this.answers.forEach((value,key) => {
+                    if (key < this.question.id) 
+                        newAnswers.set(key, [languageAnswers.get(key)[0], languageAnswers.get(key)[1], value[2]]);
+                });
+                newAnswers.set(this.question.id, [changeLanguageData[0][1], changeLanguageData[0][2][this.answers.get(this.question.id)[2]], this.answers.get(this.question.id)[2]]);
+                this.answers = newAnswers;
+                this.rejectionPage();
+            }
     }
 
     async welcomePage(){
-        this.pageIdentifyer = 1;
+        this.pageIdentifier = 1;
         let div = `
         <div>
         <p class=welcomeContent>`+ TextAssets.get(this.language).welcome +`</p>
@@ -220,10 +252,9 @@ class PolicyModelsChat extends HTMLElement{
         this.shadowRoot.querySelector('.startInterviewBtn').addEventListener('click', () => this.interviewPage());
         
     }
-    //  <input class type="text" id="fname" name="fname" value = "test"></input><br>
-    //</div>
+
     interviewPage(){
-        this.pageIdentifyer = 2;
+        this.pageIdentifier = 2;
         let div = `
         <div>
             <h3></h3>
@@ -245,24 +276,9 @@ class PolicyModelsChat extends HTMLElement{
         `;
         this.shadowRoot.querySelector('.policy-models-chat').innerHTML = div;
         this.checkElementInput();
-        // this.shadowRoot.querySelector('.changeLanguageClass').innerHTML =
-        // "<script type=\"text/javascript\"> changeLanguage();</script>" ;
-        // let answers_text = ``;
-        // for (let i = 0; i < this.question.answers.length; i++){
-        //     answers_text += `<br>${i} - ${this.question.answers[i]}`;
-        // }
-        // this.shadowRoot.querySelector('.chat').innerHTML = `<div class=ChatDiv>
-
-        //                                                     <div class=\"boxRight question\">
-        //                                                     <br>${this.question.question}
-        //                                                     ${answers_text}
-        //                                                     </div>
-                                                            
-        //                                                     </div>`
+    
         if (this.question == undefined){
             this.QuestionSetUp(undefined,undefined,-1);
-            // this.shadowRoot.querySelector('.buttons').innerHTML = "<button class = \"btnStart\" id =\"a0\">" + TextAssets.get(this.language).start + "</button>\n";
-            // this.shadowRoot.querySelector('#a0').addEventListener('click', () => this.QuestionSetUp(""));
             }
         else{
             this.QuestionSetUp(undefined,this.question.id);
@@ -279,6 +295,71 @@ class PolicyModelsChat extends HTMLElement{
         this.shadowRoot.querySelector('.downloadTranscript').innerHTML = "<button class=\"btnDownloadTranscript\">" + TextAssets.get(this.language).download_transcript + "</button>";
         this.shadowRoot.querySelector('.btnDownloadTranscript').addEventListener('click', () => this.downloadTranscript(this.answers, 'myTranscript.json'));
     }
+
+    rejectionPage(){
+        this.pageIdentifier = 4;
+        let div = `
+        <div>
+        <p class=rejectionContent>${TextAssets.get(this.language).rejection}</p>
+        <p class=rejectionAdvice>${TextAssets.get(this.language).rejection_advice}</p>
+        <div class="restartClass">
+        <button class = restartBtn> ${TextAssets.get(this.language).home}</button>
+        </div>
+        <div class = divBtnShowTranscript><button class = btnShowTranscript id="transcript-toggle">${TextAssets.get(this.language).show_transcript}</button></div>
+        <div class="transcript"></div>
+        <div class="downloadTranscript">
+        <button class="btnDownloadTranscript">${TextAssets.get(this.language).download_transcript}</button>
+        </div>
+        </div>`;
+        this.shadowRoot.querySelector('.policy-models-chat').innerHTML = div;
+
+        this.setTranscript("rejection"); 
+        if (this.transcriptFlag == true){
+            this.shadowRoot.querySelector('.transcript').style.display = 'block';
+            this.shadowRoot.querySelector('#transcript-toggle').innerText = TextAssets.get(this.language).hide_transcript;
+        }
+        this.shadowRoot.querySelector('#transcript-toggle').addEventListener('click', () => this.toggleTranscript());
+        this.shadowRoot.querySelector('.btnDownloadTranscript').addEventListener('click', () => this.downloadTranscript(this.answers, 'myTranscript.json'));
+        this.shadowRoot.querySelector('.restartBtn').addEventListener('click', () => this.backToWelcomePage());
+    }
+
+    /**
+     * sets up the transcript
+     */
+     setTranscript(str = undefined){
+        let transcriptSTR = "";
+        let num = 0;
+        let transcript = this.shadowRoot.querySelector('.transcript');
+        if (str == "rejection"){
+            this.answers.forEach((value,key) => {num += 1; transcriptSTR += ("<div>" +TextAssets.get(this.language).question+ " "+ (num).toString() +": " + value[0] +"&emsp;|&emsp;" +TextAssets.get(this.language).your_answer+ ": " +
+            value[1])});
+            transcript.innerHTML = transcriptSTR;
+        }
+        else{
+        this.answers.forEach((value,key) => {num += 1; transcriptSTR += ("<div>" +TextAssets.get(this.language).question+ " "+ (num).toString() +": " + value[0] +"&emsp;|&emsp;" +TextAssets.get(this.language).your_answer+ ": " +
+        value[1] + "&emsp;|&emsp;<button class = \"btnRevisitQ\" id = \"QR"+ key.toString() +"\">"+TextAssets.get(this.language).revisit+"</button></div>")});
+        transcript.innerHTML = transcriptSTR;
+        this.answers.forEach((value,key) => {this.shadowRoot.querySelector('#QR' + key.toString()).addEventListener('click', ()=>this.ReturnToQuestion(key))});
+        }
+    }
+
+    /**
+     * toggles the transcript button
+     */
+     toggleTranscript(){
+        let info = this.shadowRoot.querySelector('.transcript');
+        let btn = this.shadowRoot.querySelector('#transcript-toggle');
+        this.transcriptFlag = !this.transcriptFlag;
+        if(this.transcriptFlag){
+            info.style.display = 'block';
+            btn.innerText = TextAssets.get(this.language).hide_transcript;
+        }
+        else{
+            info.style.display = 'none';
+            btn.innerText = TextAssets.get(this.language).show_transcript;
+        }
+    }
+
     downloadTranscript(objToJson, name) {
         const obj = Object.fromEntries(objToJson);
         const text = JSON.stringify(obj);
@@ -291,6 +372,7 @@ class PolicyModelsChat extends HTMLElement{
 
     backToWelcomePage(){
         this.answers = new Map(); 
+        this.rejectionFlag = 0;
         this.question = undefined;  
         this.tagsFlag = false;
         this.tags = undefined;
@@ -350,25 +432,16 @@ class PolicyModelsChat extends HTMLElement{
         }
         else{
             let data = await this.apiHandler.getNextQuestion(answerNum,this.question.id);
-            if (data[0] != undefined)
+            if (data == -1){
+                this.rejectionFlag = 1;
+            }
+            else if (data[0] != undefined)
                 this.question = new Question(data[0][0],data[0][1],data[0][2]);
             else
                 this.question = new Question(undefined,"",[""]);
             this.tags = data[1];
         }
     }
-
-    /**
-     * sets up the transcript
-     */
-    // setTranscript(){
-    //     let transcriptSTR = "";
-    //     let transcript = this.shadowRoot.querySelector('.transcript');
-    //     this.answers.forEach((value,key) => {transcriptSTR += ("<div>" +TextAssets.get(this.language).question+ " "+ key.toString() +": " + value[0].question +"&emsp;|&emsp;" +TextAssets.get(this.language).your_answer+ ": " +
-    //     value[1] + "&emsp;|&emsp;<button class = \"btnRevisitQ\" id = \"QR"+ key.toString() +"\">"+TextAssets.get(this.language).revisit+"</button></div>")});
-    //     transcript.innerHTML = transcriptSTR;
-    //     this.answers.forEach((value,key) => {this.shadowRoot.querySelector('#QR' + key.toString()).addEventListener('click', ()=>this.ReturnToQuestion(key))});
-    // }
 
     /**
      * Sets up the current Question.
@@ -379,70 +452,75 @@ class PolicyModelsChat extends HTMLElement{
      */
      async QuestionSetUp(answer, overwriteid, answerNum){ 
         await this.FetchQuestion(answer,overwriteid, answerNum);
+        if (this.rejectionFlag == 1){
+            this.rejectionPage();
+        }
         //this.setTranscript(); 
-        this.shadowRoot.querySelector('.tagsDiv').innerHTML = this.parseTags(this.tags, false);
-        if(this.shadowRoot.querySelector("#inputID") != null){
-            this.shadowRoot.querySelector("#inputID").value = "";
-        }
-        let chat_text = ``;
-        this.answers.forEach((value,key) => {
-            let revisit = "<br><button class = \"btnRevisitQ\" id = \"QR"+ key.toString() +"\">"+TextAssets.get(this.language).revisit+"</button></div>";
-            chat_text += `  <div class=ChatDiv>
-                            
-                            <div class="boxLeft question">                          
-                            <br>${value[0]}
-                            ${revisit}
-                            </div>
-
-                            <div class="boxRight answer">
-                            <br>${value[1]}<br>
-                            </div>
-                            
-                            </div>
-                            `;
-        })
-        if(this.question.id == undefined){
-            chat_text +=   ` <div class=ChatDiv>
-                            
-                            <div class=\"boxLeft question\">
-                            <br>${TextAssets.get(this.language).press_conclusions}
-                            <div class="buttons">
-                            <button class = "btnConclusion">${TextAssets.get(this.language).show_conclusion}</button>
-                            </div>
-                            </div>
-                            </div>
-                            `;
-            this.shadowRoot.querySelector('.chat').innerHTML = chat_text;
-            this.answers.forEach((value,key) => {this.shadowRoot.querySelector('#QR' + key.toString()).addEventListener('click', ()=>this.ReturnToQuestion(key))});
-            this.shadowRoot.querySelector('#inputID').style.display = 'none';
-            this.shadowRoot.querySelector('.btnConclusion').addEventListener('click', () => this.conclusionPage());
-        }
         else{
-        let feedbackBtn = `<button class = feedbackBtn id = feedbackBtnID>${TextAssets.get(this.language).write_feedback}</button>`;
-        let commentBtn = `<button class = commentBtn id = commentBtnID>${TextAssets.get(this.language).write_comment}</button>`;
-        chat_text += `  <div class=ChatDiv>
-                            
-                        <div class=\"boxLeft question\">
-                        <div class=feedback>${feedbackBtn}</div>
-                        <div class=comment>${commentBtn}</div>
-                        <br>${this.question.question}
-                        <div class="buttons">
-                        </div>
-                        </div>
-                        </div>
-                        `;
-        this.shadowRoot.querySelector('.chat').innerHTML = chat_text; 
-        this.answers.forEach((value,key) => {this.shadowRoot.querySelector('#QR' + key.toString()).addEventListener('click', ()=>this.ReturnToQuestion(key))});
-        this.buttonSetUp();
-        this.shadowRoot.querySelector('.feedbackBtn').addEventListener('click', () => this.toggleFeedback());
-        this.feedbackFlag = false;
-        this.shadowRoot.querySelector('.commentBtn').addEventListener('click', () => this.toggleComment());
-        this.commentFlag = false;
+            this.shadowRoot.querySelector('.tagsDiv').innerHTML = this.parseTags(this.tags, false);
+            if(this.shadowRoot.querySelector("#inputID") != null){
+                this.shadowRoot.querySelector("#inputID").value = "";
+            }
+            let chat_text = ``;
+            this.answers.forEach((value,key) => {
+                let revisit = "<br><button class = \"btnRevisitQ\" id = \"QR"+ key.toString() +"\">"+TextAssets.get(this.language).revisit+"</button></div>";
+                chat_text += `  <div class=ChatDiv>
+                                
+                                <div class="boxLeft question">                          
+                                <br>${value[0]}
+                                ${revisit}
+                                </div>
+
+                                <div class="boxRight answer">
+                                <br>${value[1]}<br>
+                                </div>
+                                
+                                </div>
+                                `;
+            })
+            if(this.question.id == undefined){
+                chat_text +=   ` <div class=ChatDiv>
+                                
+                                <div class=\"boxLeft question\">
+                                <br>${TextAssets.get(this.language).press_conclusions}
+                                <div class="buttons">
+                                <button class = "btnConclusion">${TextAssets.get(this.language).show_conclusion}</button>
+                                </div>
+                                </div>
+                                </div>
+                                `;
+                this.shadowRoot.querySelector('.chat').innerHTML = chat_text;
+                this.answers.forEach((value,key) => {this.shadowRoot.querySelector('#QR' + key.toString()).addEventListener('click', ()=>this.ReturnToQuestion(key))});
+                this.shadowRoot.querySelector('#inputID').style.display = 'none';
+                this.shadowRoot.querySelector('.btnConclusion').addEventListener('click', () => this.conclusionPage());
+            }
+            else{
+            let feedbackBtn = `<button class = feedbackBtn id = feedbackBtnID>${TextAssets.get(this.language).write_feedback}</button>`;
+            let commentBtn = `<button class = commentBtn id = commentBtnID>${TextAssets.get(this.language).write_comment}</button>`;
+            chat_text += `  <div class=ChatDiv>
+                                
+                            <div class=\"boxLeft question\">
+                            <div class=feedback>${feedbackBtn}</div>
+                            <div class=comment>${commentBtn}</div>
+                            <br>${this.question.question}
+                            <div class="buttons">
+                            </div>
+                            </div>
+                            </div>
+                            `;
+            this.shadowRoot.querySelector('.chat').innerHTML = chat_text; 
+            this.answers.forEach((value,key) => {this.shadowRoot.querySelector('#QR' + key.toString()).addEventListener('click', ()=>this.ReturnToQuestion(key))});
+            this.buttonSetUp();
+            this.shadowRoot.querySelector('.feedbackBtn').addEventListener('click', () => this.toggleFeedback());
+            this.feedbackFlag = false;
+            this.shadowRoot.querySelector('.commentBtn').addEventListener('click', () => this.toggleComment());
+            this.commentFlag = false;
+            }
         }
     }
 
     conclusionPage(){ 
-        this.pageIdentifyer = 3;
+        this.pageIdentifier = 3;
         let div = `
         <div>
         <p class="conclusionContent">`+TextAssets.get(this.language).conclusion_page+`<p>  
@@ -620,29 +698,12 @@ class PolicyModelsChat extends HTMLElement{
      * @param
      * questionNum -> question to return to
      */
-    ReturnToQuestion(questionNum){
-        //TODO remove this condition with the full API implementation
-        this.answers.forEach((value, key) => {if(key >= questionNum) this.answers.delete(key)});
-        this.comments.forEach((value,key) => {if(key > questionNum) this.comments.delete(key)})
+     ReturnToQuestion(questionNum){
+        this.answers.forEach((value, key) => {if(key >= parseInt(questionNum)){this.answers.delete(key)}});
+        this.comments.forEach((value,key) => {if(key > parseInt(questionNum)) this.comments.delete(key)});
         this.QuestionSetUp(undefined,questionNum, -1);
     }
 
-    // /**
-    //  * toggles the transcript button
-    //  */
-    // toggleTranscript(){
-    //     let info = this.shadowRoot.querySelector('.transcript');
-    //     let btn = this.shadowRoot.querySelector('#transcript-toggle');
-    //     this.transcriptFlag = !this.transcriptFlag;
-    //     if(this.transcriptFlag){
-    //         info.style.display = 'block';
-    //         btn.innerText = TextAssets.get(this.language).hide_transcript;
-    //     }
-    //     else{
-    //         info.style.display = 'none';
-    //         btn.innerText = TextAssets.get(this.language).show_transcript;
-    //     }
-    // }
 
     toggleTags(){
         let info = this.shadowRoot.querySelector('.tagsDiv');
