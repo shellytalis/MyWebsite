@@ -25,7 +25,7 @@
   padding: 15px;
 }
 
-.restartBtn {
+.restartBtn { 
   position: relative;
   right: 200px;
   margin-top: 20px;
@@ -271,4 +271,11 @@ h4 {
   color: black;
   font-family: 'Nunito', sans-serif;
   font-weight:900;
+}
+
+.rejectionContent{
+  color: red;
+  font-family: 'Nunito', sans-serif;
+  font-weight:900;
+  font-size: 20px;
 }
