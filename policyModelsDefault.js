@@ -9,134 +9,139 @@ class Question {
         this.answers = answers
     }
 }
-
-/**
- * temp question bank
- */
- const jsonData = {"Recommendations":["checkElderlyAllowance"],"Duties":["employeePriorNotice"],"EmployerObligations":["honorFormerContractorSeniority","finalAccountSettlement","pensionFundNotice","jobTerminationConfirmation","workPeriodLetter","form161"],"Notices":["severancePayMethod_Monthly","priorNoticePeriod_Varied"],"Benefits":{"Pension":"allowance","Properties":["possiblePersonalAccidentsInsurance"]},"Assertions":{"Employment":{"Type":"contractor","Scope":"full","SalaryUnits":"monthly","Duration":"_6_11"},"AgeGroup":"voluntaryPension","LegalStatus":"israeliCitizenship","Gender":"female"}};
- //answer order - are you a woman? - yes || How old are you? - 62 to 67 || Are you an Israeli citizen? - yes.
- const jsonQuestionBankEnglish = [{
-     "questionID": 1,
-     "question": "Are you a woman?",
-     "answers": ["yes", "no"]
- },
- {
-     "questionID": 2,
-     "question": "How old are you?",
-     "answers": ["under 62", "62 to 67", "67 and over"]
- },
- {
-     "questionID": 3,
-     "question": "Are you an Israeli citizen?",
-     "answers": ["yes", "no"]
- },
- {
-     "questionID": 4,
-     "question": "How was your salary calculated?",
-     "answers": ["monthly", "daily", "hourly"]
- },
- {
-     "questionID": 5,
-     "question": "How has your day been?",
-     "answers":  ["Best day of my life", "Great", "Ok", "Bad", "Straight up agony"]
- },
- {
-     "questionID": 6,
-     "question": "What is your favorite animal",
-     "answers": ["Dog", "Cat", "Mouse", "Frog", "Hedgehog", "Bee", "Wolf", "Other"]
- },
- {
-     "questionID": 7,
-     "question": "Who is the best?",
-     "answers": ["Shady", "Shelly", "Eilon", "Tbh none of them"]
- },
- {
-     "questionID": 8,
-     "question": "Are you an israeli citizan",
-     "answers": ["Yes", "No"]
- },
- {
-     "questionID": 9,
-     "question": "Who is the best friend?",
-     "answers": ["Ross", "Chandler", "Monica", "Rachel", "Pheobe", "Joey"]
- },
- {
-     "questionID": 10,
-     "question": "HIMYM or Seinfeld?",
-     "answers": ["HIMYM", "Seinfeld", "F.r.i.e.n.d.s", "other"]
- },
- {
-     "questionID": undefined,
-     "question": "",
-     "answers": []
- }];
-
-//const jsonQuestionBankArabic = [];
-//const jsonQuestionBankHebrew = [];
-//const jsonQuestionBankRussian = [];
-
-
-/**
- * a class that portrays the API calls. later will be changed to include them
- */
-class APIMock {
-    constructor(){
-        this.language = 'English-Raw'
-        this.questionId;
-        this.questionbank = jsonQuestionBankEnglish
-        this.answers = new Map();
+ 
+if(document.getElementById('internalCheckUp') != null){
+    //test css
+    try{
+        let css = document.getElementById("style").innerHTML;
     }
-
-    initModel(modelId, versionId){
-        return;
+    catch(e){
+        prompt("Could not find CSS file!");
     }
-
-    initInterview(language){
-        this.answers = new Map();
-        this.questionId = this.questionbank[0]['questionID'];
-        let retObject = [[this.questionbank[0]['questionID'],this.questionbank[0]['question'],this.questionbank[0]['answers']], jsonData];
-        return retObject;
+    //test Text Assets
+    try{
+        let keys = TextAssets.keys();
     }
-
-    getNextQuestion(answer, questionId) {
-        this.answers.set(questionId, [this.questionbank[questionId]['question'], answer]);
-        // if (answer == -1)
-        //     retObject = JSON.stringify(this.questionbank[questionID - 1]); 
-        // if (questionId == undefined)
-        //     retObject = JSON.stringify(this.questionbank[0]);
-        // else
-        //console.log(this.questionbank[questionId]);
-        this.questionId = this.questionbank[questionId]['questionID'];
-        let retObject = [[this.questionbank[questionId]['questionID'],this.questionbank[questionId]['question'],this.questionbank[questionId]['answers']], jsonData];
-        return retObject;
+    catch(e){
+        prompt("Could not find \"textAssets.js\" file!");
     }
+    Array.from(TextAssets.keys()).forEach((key) =>
+    {
+    
+        let welcome_PM = TextAssets.get(key).welcome_PM;
+        if (welcome_PM  == undefined){
+            prompt(`textAssets is missing 'welcome_PM' for ${key}!`);
+        }
+        let start_interview = TextAssets.get(key).start_interview;
+        if (start_interview  == undefined){
+            prompt(`textAssets is missing 'start_interview' for ${key}!`);
+        }
+        let start = TextAssets.get(key).start;
+        if (start  == undefined){
+            prompt(`textAssets is missing 'start' for ${key}!`);
+        }
+        let show_transcript = TextAssets.get(key).show_transcript;
+        if (show_transcript  == undefined){
+            prompt(`textAssets is missing 'show_transcript' for ${key}!`);
+        }
+        let hide_transcript = TextAssets.get(key).hide_transcript;
+        if (hide_transcript  == undefined){
+            prompt(`textAssets is missing 'hide_transcript' for ${key}!`);
+        }
+        let question = TextAssets.get(key).question;
+        if (question  == undefined){
+            prompt(`textAssets is missing 'question' for ${key}!`);
+        }
+        let your_answer = TextAssets.get(key).your_answer;
+        if (your_answer  == undefined){
+            prompt(`textAssets is missing 'your_answer' for ${key}!`);
+        }
+        let revisit = TextAssets.get(key).revisit;
+        if (revisit  == undefined){
+            prompt(`textAssets is missing 'revisit' for ${key}!`);
+        }
+        let show_conclusion = TextAssets.get(key).show_conclusion;
+        if (show_conclusion  == undefined){
+            prompt(`textAssets is missing 'show_conclusion' for ${key}!`);
+        }
+        let home = TextAssets.get(key).home;
+        if (home  == undefined){
+            prompt(`textAssets is missing 'home' for ${key}!`);
+        }
+        let result = TextAssets.get(key).result;
+        if (result  == undefined){
+            prompt(`textAssets is missing 'result' for ${key}!`);
+        }
+        let conclusion_page = TextAssets.get(key).conclusion_page;
+        if (conclusion_page  == undefined){
+            prompt(`textAssets is missing 'conclusion_page' for ${key}!`);
+        }
+        let press_conclusions = TextAssets.get(key).press_conclusions;
+        if (press_conclusions  == undefined){
+            prompt(`textAssets is missing 'press_conclusions' for ${key}!`);
+        }
+        let download_transcript = TextAssets.get(key).download_transcript;
+        if (download_transcript  == undefined){
+            prompt(`textAssets is missing 'download_transcript' for ${key}!`);
+        }
+        let write_feedback = TextAssets.get(key).write_feedback;
+        if (write_feedback  == undefined){
+            prompt(`textAssets is missing 'write_feedback' for ${key}!`);
+        }
+        let submit_feedback = TextAssets.get(key).submit_feedback;
+        if (submit_feedback  == undefined){
+            prompt(`textAssets is missing 'submit_feedback' for ${key}!`);
+        }
+        let show_tags = TextAssets.get(key).show_tags;
+        if (show_tags  == undefined){
+            prompt(`textAssets is missing 'show_tags' for ${key}!`);
+        }
+        let hide_tags = TextAssets.get(key).hide_tags;
+        if (hide_tags  == undefined){
+            prompt(`textAssets is missing 'hide_tags' for ${key}!`);
+        }
+        let my_feedback_is = TextAssets.get(key).my_feedback_is;
+        if (my_feedback_is  == undefined){
+            prompt(`textAssets is missing 'my_feedback_is' for ${key}!`);
+        }
+        let my_name_is = TextAssets.get(key).my_name_is;
+        if (my_name_is  == undefined){
+            prompt(`textAssets is missing 'my_name_is' for ${key}!`);
+        }
+        let download_conclusions = TextAssets.get(key).download_conclusions;
+        if (download_conclusions  == undefined){
+            prompt(`textAssets is missing 'download_conclusions' for ${key}!`);
+        }
+        let write_comment = TextAssets.get(key).write_comment;
+        if (write_comment  == undefined){
+            prompt(`textAssets is missing 'write_comment' for ${key}!`);
+        }
+        let hide_comment = TextAssets.get(key).hide_comment;
+        if (hide_comment  == undefined){
+            prompt(`textAssets is missing 'hide_comment' for ${key}!`);
+        }
+        let my_comment_is = TextAssets.get(key).my_comment_is;
+        if (my_comment_is  == undefined){
+            prompt(`textAssets is missing 'my_comment_is' for ${key}!`);
+        }
+        let rejection = TextAssets.get(key).rejection;
+        if (rejection  == undefined){
+            prompt(`textAssets is missing 'rejection' for ${key}!`);
+        }
+        let rejection_advice = TextAssets.get(key).rejection_advice;
+        if (rejection_advice  == undefined){
+            prompt(`textAssets is missing 'rejection_advice' for ${key}!`);
+        }
+    })
 
-    returnToQuestion(questionId){
-        this.answers.forEach((value, key) => {if(key >= questionId) this.answers.delete(key)});
-        let retObject = [[this.questionbank[questionId-1]['questionID'],this.questionbank[questionId-1]['question'],this.questionbank[questionId-1]['answers']], jsonData, this.answers];
-        return retObject;
+    //test connection
+    try{
+        let apiHandler = new PMAPIHandler();
     }
-
-    changeLanguage(language){
-        let retObject = [[this.questionbank[this.questionId]['questionID'],this.questionbank[this.questionId]['question'],this.questionbank[this.questionId]['answers']], jsonData, this.answers];
-        return retObject
-    }
-
-    changeHandlerLanguage(language){
-        this.language = language;
-    }
-
-    getTags(language){
-        return jsonData;
-    }
-
-    sendFeedback(name, feedback){
-        console.log(name);
-        console.log(feedback);
+    catch(e){
+        prompt(`could not find 'connection.js' file!`);
     }
 }
- 
-
 
 const template = document.createElement('template');
 var nameOfFileCss = document.getElementById("style").innerHTML;
@@ -161,7 +166,8 @@ template.innerHTML = `<link rel=\"stylesheet\" href=` + nameOfFileCss + `>
 class PolicyModelsDefault extends HTMLElement{
     constructor(){
         super();
-        this.pageIdentifyer = 1;
+        this.rejectionFlag = 0;
+        this.pageIdentifier = 1;
         this.transcriptFlag = false;
         this.feedbackFlag = false;
         this.commentFlag = false;
@@ -181,27 +187,22 @@ class PolicyModelsDefault extends HTMLElement{
         //base language will always be the language in index '0' at textAssets.languages.
         this.language = TextAssets.keys().next().value;
 
-        // this.question = new Question(undefined,TextAssets.get(this.language).welcome_PM, [TextAssets.get(this.language).start]);
-        // this.buttons = ['#a0'];
-
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
         this.welcomePage();
         
-
-
-        //  NEW (delete the btn and the script)
         this.shadowRoot.querySelector('#mySelect').addEventListener('change', () => {this.changeLanguage();});
         
 
     }
+
     async changeLanguage(){
         this.language = this.shadowRoot.querySelector('#mySelect').value;
-            if(this.pageIdentifyer == 1){
+            if(this.pageIdentifier == 1){
                 this.apiHandler.changeHandlerLanguage(this.language);
                 this.welcomePage();
             }
-            else if (this.pageIdentifyer == 2){
+            else if (this.pageIdentifier == 2){
                 let changeLanguageData = await this.apiHandler.changeLanguage(this.language);
                 let languageAnswers = changeLanguageData[2];
                 let newAnswers = new Map();
@@ -212,20 +213,32 @@ class PolicyModelsDefault extends HTMLElement{
                 this.answers = newAnswers;
                 this.interviewPage();
             }
-            else if (this.pageIdentifyer == 3){
+            else if (this.pageIdentifier == 3){
                 this.apiHandler.changeHandlerLanguage(this.language);
                 this.tags = await this.apiHandler.getTags(this.language);
                 this.conclusionPage();
+            }
+            else if (this.pageIdentifier == 4){
+                let changeLanguageData = await this.apiHandler.changeLanguage(this.language);
+                let languageAnswers = changeLanguageData[2];
+                let newAnswers = new Map();
+                this.answers.forEach((value,key) => {
+                    if (key < this.question.id) 
+                        newAnswers.set(key, [languageAnswers.get(key)[0], languageAnswers.get(key)[1], value[2]]);
+                });
+                newAnswers.set(this.question.id, [changeLanguageData[0][1], changeLanguageData[0][2][this.answers.get(this.question.id)[2]], this.answers.get(this.question.id)[2]]);
+                this.answers = newAnswers;
+                this.rejectionPage();
             }
     }
     /** 
      * a function called to load the welcome page
     */
     async welcomePage(){
-        this.pageIdentifyer = 1;
+        this.pageIdentifier = 1;
         let div = `
         <div>
-        <p class=welcomeContent>`+ TextAssets.get(this.language).welcome +`</p>
+        <p class=welcomeContent>`+ TextAssets.get(this.language).welcome_PM +`</p>
         <h4></h4>
         <div class=\"startInterview\"></div>
         </div>`;
@@ -244,7 +257,7 @@ class PolicyModelsDefault extends HTMLElement{
      * a function called to load the interview page
      */
     interviewPage(){
-        this.pageIdentifyer = 2;
+        this.pageIdentifier = 2;
         let div = `
         <div class = "grid">
             <div class = "defaultInterview">
@@ -274,15 +287,9 @@ class PolicyModelsDefault extends HTMLElement{
         this.shadowRoot.querySelector('.policy-models-default').innerHTML = div;
         
         this.shadowRoot.querySelector('#transcript-toggle').addEventListener('click', () => this.toggleTranscript());
-        //this.transcriptFlag = false;
-        //this.question = new Question(0,TextAssets.get(this.language).welcome_PM, [TextAssets.get(this.language).start]);
-        //this.buttons = ['#a0'];
         this.shadowRoot.querySelector('.namePolicyModels').innerText = this.getAttribute('name');
-        //this.shadowRoot.querySelector('h4').innerText = this.question.question;
         if (this.question == undefined){
             this.QuestionSetUp(undefined,undefined,-1);
-            // this.shadowRoot.querySelector('.buttons').innerHTML = "<button class = \"btnStart\" id =\"a0\">" + TextAssets.get(this.language).start + "</button>\n";
-            // this.shadowRoot.querySelector('#a0').addEventListener('click', () => this.QuestionSetUp(""));
             }
         else{
             this.QuestionSetUp(undefined,this.question.id);
@@ -305,6 +312,33 @@ class PolicyModelsDefault extends HTMLElement{
         this.shadowRoot.querySelector('.btnDownloadTranscript').addEventListener('click', () => this.downloadTranscript(this.answers, 'myTranscript.json'));
     }
 
+    rejectionPage(){
+        this.pageIdentifier = 4;
+        let div = `
+        <div>
+        <p class=rejectionContent>${TextAssets.get(this.language).rejection}</p>
+        <p class=rejectionAdvice>${TextAssets.get(this.language).rejection_advice}</p>
+        <div class="restartClass">
+        <button class = restartBtn> ${TextAssets.get(this.language).home}</button>
+        </div>
+        <div class = divBtnShowTranscript><button class = btnShowTranscript id="transcript-toggle">${TextAssets.get(this.language).show_transcript}</button></div>
+        <div class="transcript"></div>
+        <div class="downloadTranscript">
+        <button class="btnDownloadTranscript">${TextAssets.get(this.language).download_transcript}</button>
+        </div>
+        </div>`;
+        this.shadowRoot.querySelector('.policy-models-default').innerHTML = div;
+
+        this.setTranscript("rejection"); 
+        if (this.transcriptFlag == true){
+            this.shadowRoot.querySelector('.transcript').style.display = 'block';
+            this.shadowRoot.querySelector('#transcript-toggle').innerText = TextAssets.get(this.language).hide_transcript;
+        }
+        this.shadowRoot.querySelector('#transcript-toggle').addEventListener('click', () => this.toggleTranscript());
+        this.shadowRoot.querySelector('.btnDownloadTranscript').addEventListener('click', () => this.downloadTranscript(this.answers, 'myTranscript.json'));
+        this.shadowRoot.querySelector('.restartBtn').addEventListener('click', () => this.backToWelcomePage());
+    }
+
     downloadTranscript(objToJson, name) {
         const obj = Object.fromEntries(objToJson);
         const text = JSON.stringify(obj);
@@ -317,6 +351,7 @@ class PolicyModelsDefault extends HTMLElement{
 
     backToWelcomePage(){
         this.answers = new Map();   
+        this.rejectionFlag = 0;
         this.transcriptFlag = false;
         this.question = undefined;
         this.tagsFlag = false;
@@ -329,7 +364,7 @@ class PolicyModelsDefault extends HTMLElement{
      * a function called to load the conclusion page
      */
     conclusionPage(){ //TODO add text assets
-        this.pageIdentifyer = 3;
+        this.pageIdentifier = 3;
         let div = `
         <div>
         <p class=conclusionContent>`+TextAssets.get(this.language).conclusion_page+`</p>  
@@ -398,7 +433,10 @@ class PolicyModelsDefault extends HTMLElement{
         }
         else{
             let data = await this.apiHandler.getNextQuestion(answerNum,this.question.id);
-            if (data[0] != undefined)
+            if (data == -1){
+                this.rejectionFlag = 1;
+            }
+            else if (data[0] != undefined)
                 this.question = new Question(data[0][0],data[0][1],data[0][2]);
             else
                 this.question = new Question(undefined,"",[""]);
@@ -410,13 +448,21 @@ class PolicyModelsDefault extends HTMLElement{
     /**
      * sets up the transcript
      */
-    setTranscript(){
+    setTranscript(str = undefined){
         let transcriptSTR = "";
+        let num = 0;
         let transcript = this.shadowRoot.querySelector('.transcript');
-        this.answers.forEach((value,key) => {transcriptSTR += ("<div>" +TextAssets.get(this.language).question+ " "+ key.toString() +": " + value[0] +"&emsp;|&emsp;" +TextAssets.get(this.language).your_answer+ ": " +
+        if (str == "rejection"){
+            this.answers.forEach((value,key) => {num += 1; transcriptSTR += ("<div>" +TextAssets.get(this.language).question+ " "+ (num).toString() +": " + value[0] +"&emsp;|&emsp;" +TextAssets.get(this.language).your_answer+ ": " +
+            value[1])});
+            transcript.innerHTML = transcriptSTR;
+        }
+        else{
+        this.answers.forEach((value,key) => {num += 1; transcriptSTR += ("<div>" +TextAssets.get(this.language).question+ " "+ (num).toString() +": " + value[0] +"&emsp;|&emsp;" +TextAssets.get(this.language).your_answer+ ": " +
         value[1] + "&emsp;|&emsp;<button class = \"btnRevisitQ\" id = \"QR"+ key.toString() +"\">"+TextAssets.get(this.language).revisit+"</button></div>")});
         transcript.innerHTML = transcriptSTR;
         this.answers.forEach((value,key) => {this.shadowRoot.querySelector('#QR' + key.toString()).addEventListener('click', ()=>this.ReturnToQuestion(key))});
+        }
     }
 
     /**
@@ -428,36 +474,42 @@ class PolicyModelsDefault extends HTMLElement{
      */
     async QuestionSetUp(answer, overwriteid, answerNum){ 
         await this.FetchQuestion(answer,overwriteid, answerNum);
-        this.setTranscript(); 
-        this.shadowRoot.querySelector('.tagsDiv').innerHTML = this.parseTags(this.tags, false);
-        this.shadowRoot.querySelector('.questions').innerText = this.question.question; 
-        this.shadowRoot.querySelector('.feedbackDiv').innerHTML = 
-        `<button class = feedbackBtn id = feedbackBtnID>`+TextAssets.get(this.language).write_feedback+`</button>`;
-        this.shadowRoot.querySelector('.feedbackBtn').addEventListener('click', () => this.toggleFeedback());
-        this.feedbackFlag = false;
-        this.shadowRoot.querySelector('.commentDiv').innerHTML = 
-        `<button class = commentBtn id = commentBtnID>`+ TextAssets.get(this.language).write_comment +`</button>`;
-        this.shadowRoot.querySelector('.commentBtn').addEventListener('click', () => this.toggleComment());
-        this.commentFlag = false;
-        if(this.question.id == undefined){
-            this.shadowRoot.querySelector('.buttons').innerHTML = 
-                "<p class=transitionToConclusionPageContent>"+TextAssets.get(this.language).press_conclusions+"</p>";
-
-            this.conclusion();
+        if (this.rejectionFlag == 1){
+            this.rejectionPage();
         }
         else{
-            this.buttonSetUp();
-            var e = this.shadowRoot.querySelector('#inputID') ; //NEW
-            if (e != null){
-                e.parentNode.removeChild(e);
+            this.setTranscript(); 
+            this.shadowRoot.querySelector('.tagsDiv').innerHTML = this.parseTags(this.tags, false);
+            this.shadowRoot.querySelector('.questions').innerText = this.question.question; 
+            this.shadowRoot.querySelector('.feedbackInputDiv').innerHTML = '';
+            this.shadowRoot.querySelector('.feedbackDiv').innerHTML = 
+            `<button class = feedbackBtn id = feedbackBtnID>`+TextAssets.get(this.language).write_feedback+`</button>`;
+            this.shadowRoot.querySelector('.feedbackBtn').addEventListener('click', () => this.toggleFeedback());
+            this.feedbackFlag = false;
+            this.shadowRoot.querySelector('.commentDiv').innerHTML = 
+            `<button class = commentBtn id = commentBtnID>`+ TextAssets.get(this.language).write_comment +`</button>`;
+            this.shadowRoot.querySelector('.commentBtn').addEventListener('click', () => this.toggleComment());
+            this.commentFlag = false;
+            if(this.question.id == undefined){
+                this.shadowRoot.querySelector('.buttons').innerHTML = 
+                    "<p class=transitionToConclusionPageContent>"+TextAssets.get(this.language).press_conclusions+"</p>";
+
+                this.conclusion();
             }
-            var name = this.shadowRoot.querySelector('#inputNameID') ; //NEW
-            if (name != null){
-                name.parentNode.removeChild(name);
-            }
-            var c = this.shadowRoot.querySelector('#inputCommentID') ; //NEW
-            if (c != null){
-                c.parentNode.removeChild(c);
+            else{
+                this.buttonSetUp();
+                var e = this.shadowRoot.querySelector('#inputID') ; //NEW
+                if (e != null){
+                    e.parentNode.removeChild(e);
+                }
+                var name = this.shadowRoot.querySelector('#inputNameID') ; //NEW
+                if (name != null){
+                    name.parentNode.removeChild(name);
+                }
+                var c = this.shadowRoot.querySelector('#inputCommentID') ; //NEW
+                if (c != null){
+                    c.parentNode.removeChild(c);
+                }
             }
         }
     }
@@ -490,19 +542,19 @@ class PolicyModelsDefault extends HTMLElement{
     createElementCommentInput(){
         if (this.comments.has(this.question.id)){
             this.shadowRoot.querySelector('.commentInputDiv').innerHTML = 
-            `<textarea rows="4" cols="40" id="inputCommentID" placeholder="${TextAssets.get(this.language).my_comment_is}" >${this.comments.get(this.question.id)}</textarea><br><br>`;
+            `<textarea rows="4" cols="40" id="inputCommentID" placeholder="${TextAssets.get(this.language).my_comment_is}" >${this.comments.get(this.question.id)}</textarea>`;
             this.shadowRoot.querySelector("#inputCommentID").addEventListener('keyup', () => this.updateComment())
         }
         else{
             this.shadowRoot.querySelector('.commentInputDiv').innerHTML = 
-            `<textarea rows="4" cols="40" id="inputCommentID" placeholder="`+TextAssets.get(this.language).my_comment_is+`"></textarea><br><br>`;}
+            `<textarea rows="4" cols="40" id="inputCommentID" placeholder="`+TextAssets.get(this.language).my_comment_is+`"></textarea>`;}
             this.shadowRoot.querySelector("#inputCommentID").addEventListener('keyup', () => this.updateComment())
     }
 
     createElementInput(){
         this.shadowRoot.querySelector('.feedbackInputDiv').innerHTML = 
-        `<input type="text" id="inputNameID" placeholder="`+TextAssets.get(this.language).my_name_is+`"><br>`+
-        `<textarea rows="4" cols="40" id="inputID" placeholder="`+TextAssets.get(this.language).my_feedback_is+`"></textarea><br><br>`;
+        `<input type="text" id="inputNameID" placeholder="`+TextAssets.get(this.language).my_name_is+`">
+        <br><textarea rows="4" cols="40" id="inputID" placeholder="`+TextAssets.get(this.language).my_feedback_is+`"></textarea>`;
     }
 
     feedbackSubmit(){
@@ -512,7 +564,7 @@ class PolicyModelsDefault extends HTMLElement{
         var name = this.shadowRoot.querySelector('#inputNameID');
         var strName = String(name.value);
         if((!specialChars.test(strFeedback)) && (!specialChars.test(strName))){
-            this.apiHandler.sendFeedback(name, strFeedback);
+            this.apiHandler.sendFeedback(strName, strFeedback);
         }
         else{
             if(specialChars.test(strFeedback)){
@@ -552,6 +604,7 @@ class PolicyModelsDefault extends HTMLElement{
             this.shadowRoot.querySelector('.feedbackDiv').innerHTML = 
             `<button class = feedbackBtn id = feedbackBtnID>`+TextAssets.get(this.language).write_feedback+`</button>`;
             this.shadowRoot.querySelector('.feedbackBtn').addEventListener('click', () => this.toggleFeedback());
+            this.shadowRoot.querySelector('.feedbackInputDiv').innerHTML = '';
         }
     }
 
@@ -601,12 +654,8 @@ class PolicyModelsDefault extends HTMLElement{
      * questionNum -> question to return to
      */
     ReturnToQuestion(questionNum){
-        //TODO remove this condition with the full API implementation
-        // if(questionNum > 10 || questionNum < 1){
-        //     return;
-        // }
-        this.answers.forEach((value, key) => {if(key >= questionNum) this.answers.delete(key)});
-        this.comments.forEach((value,key) => {if(key > questionNum) this.comments.delete(key)})
+        this.answers.forEach((value, key) => {if(key >= parseInt(questionNum)){this.answers.delete(key)}});
+        this.comments.forEach((value,key) => {if(key > parseInt(questionNum)) this.comments.delete(key)});
         this.QuestionSetUp(undefined,questionNum, -1);
     }
 
@@ -628,6 +677,7 @@ class PolicyModelsDefault extends HTMLElement{
     }
 
     toggleTags(){
+        console.log("hi");
         let info = this.shadowRoot.querySelector('.tagsDiv');
         let btn = this.shadowRoot.querySelector('#tags-toggle');
         this.tagsFlag = !this.tagsFlag;
