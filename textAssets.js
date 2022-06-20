@@ -10,7 +10,7 @@ TextAssets.set("English-Raw", {
     revisit: "Revisit this question",
     show_conclusion: "Show Conclusion",
     home: "Home",
-    welcome: "Welcome to the PolicyModels test site!",
+    welcome_PM: "Welcome to the PolicyModels test site!",
     result: "Your results",
     conclusion_page: "Conclusion Page",
     press_conclusions: "Press the \"show conclusion\" button to see the conclusion of your interview",
@@ -25,7 +25,9 @@ TextAssets.set("English-Raw", {
     enter_answer: "Enter your answer here",
     write_comment: "Add personal comment",
     hide_comment: "Hide comment",
-    my_comment_is: "my comment is:"
+    my_comment_is: "my comment is:",
+    rejection: "Rejection!",
+    rejection_advice:"You still be able to get some benefits. We recommend consulting a lawyer, we can refer you if needed."
 });
 TextAssets.set("en-US", {
     welcome: "Welcome",
@@ -38,7 +40,7 @@ TextAssets.set("en-US", {
     revisit: "Revisit this question",
     show_conclusion: "Show Conclusion",
     home: "Home",
-    welcome: "Welcome to the PolicyModels test site!",
+    welcome_PM: "Welcome to the PolicyModels test site!",
     result: "Your results",
     conclusion_page: "Conclusion Page",
     press_conclusions: "Press the \"show conclusion\" button to see the conclusion of your interview",
@@ -53,7 +55,9 @@ TextAssets.set("en-US", {
     enter_answer: "Enter your answer here",
     write_comment: "Add personal comment",
     hide_comment: "Hide comment",
-    my_comment_is: "my comment is:"
+    my_comment_is: "my comment is:",
+    rejection: "Rejection!",
+    rejection_advice:"We recommend consulting a lawyer, we can refer you if needed."
 });
 TextAssets.set("he-IL", {
     welcome: "ברוכים הבאים",
@@ -66,7 +70,7 @@ TextAssets.set("he-IL", {
     revisit: "חזור לשאלה זו",
     show_conclusion: "הראה תוצאות",
     home: "חזרה לעמוד הבית",
-    welcome: "ברוכים הבאים לאתר הזמני של PolicyModels",
+    welcome_PM: "ברוכים הבאים לאתר הזמני של PolicyModels",
     result: "התוצאות שלך",
     conclusion_page: "עמוד התוצאות",
     press_conclusions: "לחץ על כפתור \"הראה תוצאות\" על מנת לראות את תוצאות הראיון",
@@ -81,6 +85,8 @@ TextAssets.set("he-IL", {
     enter_answer: "הכנס את התשובה שלך כאן",
     write_comment: "הוסף הערה אישית",
     hide_comment: "הסתר הערה",
-    my_comment_is: "ההערה שלי היא:"
+    my_comment_is: "ההערה שלי היא:",
+    rejection: "הפניה למענה אנושי",
+    rejection_advice:"אנחנו ממליצים שתפנה/י לעורך דין, אנחנו יכולים להפנות אותך אם תרצה/י"
 });
 
